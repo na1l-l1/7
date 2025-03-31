@@ -13,7 +13,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText usernameField, passwordField;
     private Button loginButton, registerButton;
-
+    private static final String USER_PREFS = "UserPreferences";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
