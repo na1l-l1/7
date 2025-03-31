@@ -34,7 +34,24 @@
         android:textSize="18sp"
         android:layout_marginTop="10dp"/>
 
+    <Button
+        android:id="@+id/btnCreateFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Создать новый файл"
+        android:backgroundTint="#3F51B5"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"/>
 
+    <TextView
+        android:id="@+id/textFileData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Выберите файл из списка"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp" />
 
     <ListView
         android:id="@+id/listViewFiles"

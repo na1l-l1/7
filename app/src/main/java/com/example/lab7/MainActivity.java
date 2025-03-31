@@ -95,4 +95,29 @@ public class MainActivity extends AppCompatActivity {
 
         fileListView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, fileNames));
     }
+
+
+    private void createNewFile() {
+        // Удаляем старый файл
+        File file = new File(getExternalFilesDir(null), fileName);
+        if (file.exists()) {
+            file.delete();
+        }
+
+        // Создаем новый файл
+        File newFile = new File(getExternalFilesDir(null), newFileName);
+        try {
+            if (newFile.createNewFile()) {
+                showToast("Новый файл создан: " + newFile.getAbsolutePath());
+                refreshFileList();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            showToast("Ошибка при создании файла");
+        }
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
 }

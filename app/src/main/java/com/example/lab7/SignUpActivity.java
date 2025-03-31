@@ -54,11 +54,11 @@ public class SignUpActivity extends AppCompatActivity {
         editor.putString(username, password);
         editor.apply();
 
-        // Проверяем, сохранился ли пользователь
+
         String checkPassword = prefs.getString(username, null);
         if (checkPassword != null) {
             showToast("Регистрация успешна!");
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, com.example.lab7.LoginActivity.class));
             finish();
         } else {
             showToast("Ошибка при сохранении пользователя.");
