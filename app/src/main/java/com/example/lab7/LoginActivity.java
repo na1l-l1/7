@@ -25,7 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.btnLogin);
         registerButton = findViewById(R.id.btnSignUp);
 
-        registerButton.setOnClickListener(v -> startActivity(new Intent(this, SignUpActivity.class)));
+        registerButton.setOnClickListener(v -> startActivity(new Intent(this, com.example.lab07.SignUpActivity.class)));
         loginButton.setOnClickListener(v -> authenticateUser());
     }
 
@@ -51,5 +51,9 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             showToast("Неверный логин или пароль");
         }
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
