@@ -28,3 +28,28 @@ public class LoginActivity extends AppCompatActivity {
         registerButton.setOnClickListener(v -> startActivity(new Intent(this, SignUpActivity.class)));
         loginButton.setOnClickListener(v -> authenticateUser());
     }
+
+    private void authenticateUser() {
+        String user = usernameField.getText().toString().trim();
+        String pass = passwordField.getText().toString().trim();
+
+        if (user.isEmpty() || pass.isEmpty()) {
+            showToast("Введите логин и пароль");
+            return;
+        }
+
+        SharedPreferences prefs = getSharedPreferences(USER_PREFS, Context.MODE_PRIVATE);
+        if (!prefs.contains(user)) {
+            showToast("Пользователь не найден. Зарегистрируйтесь.");
+            return;
+        }
+
+        if (pass.equals(prefs.getString(user, ""))) {
+            showToast("Вход успешен!");
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        } else {
+            showToast("Неверный логин или пароль");
+        }
+    }
+}
